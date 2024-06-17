@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital clock</title>
+    <link rel="stylesheet" href="digitalclock.css">
+</head>
+
+<body>
+    <div class="hero">
+        <div class="container">
+            <div class="clock">
+                <span id="hrs">00</span>
+                <span>:</span>
+                <span id="min">00</span>
+                <span>:</span>
+                <span id="sec">00</span>
+            </div>
+
+        </div>
+
+    </div>
+    <script>
+        function updateClock() {
+            let gethrs = document.querySelector('#hrs');
+            let getmin = document.querySelector('#min');
+            let getsec = document.querySelector('#sec');
+            let gettime = new Date();
+            let reshrs = gettime.getHours();
+            let resmin = gettime.getMinutes();
+            let ressec = gettime.getSeconds();
+            // Add leading zeros if needed
+            reshrs = reshrs < 10 ? "0" + reshrs : reshrs;
+            resmin = resmin < 10 ? "0" + resmin : resmin;
+            ressec = ressec < 10 ? "0" + ressec : ressec;
+
+            gethrs.innerHTML = reshrs;
+            getmin.innerHTML = resmin;
+            getsec.innerHTML = ressec;
+
+        }
+        // Update the clock every second
+        setInterval(updateClock, 1000);
+
+    </script>
+</body>
+
+</html>
